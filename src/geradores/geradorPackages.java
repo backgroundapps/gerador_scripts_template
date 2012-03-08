@@ -16,7 +16,7 @@ public class geradorPackages {
 	private static String sufixSPC = "_pkg.ddl.sql";
 	private static String sufixBDY = "_pkg.bdy.sql";
 	
-	private static void packageSPC() throws IOException{
+	private static  void packageSPC() throws IOException{
 		File f = null;
 		FileWriter fw = null;
 		BufferedWriter bw = null;
@@ -94,11 +94,14 @@ public class geradorPackages {
 		
 	}
 	
+	
+	
 	public static void main(String[] args) throws IOException{
 		owner = JOptionPane.showInputDialog("Insira o Owner da package: \n Ex:ts_owner");
 		nome = JOptionPane.showInputDialog("Insira o nome da package: \n Ex:odo_pag_fhc_parametros");;
 		packageSPC();
 		packageBDY();
+		GeraSynonym.gerar(owner, nome);
 		JOptionPane.showMessageDialog(null, "Rotina "+owner+"."+nome+" criada!");
 	}
 }
